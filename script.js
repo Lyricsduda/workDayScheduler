@@ -7,7 +7,7 @@ $(document).ready(function () {
         $("#currentDay").text(moment().format('dddd, MMMM Do'));
     };
 
-    //Color coding schedule dependant upon hour
+    // Function to add color cordination based on if the event is the present, past or, future
     function colorRowSchedule() {
         $("input").each(function () {
             var rowTimeHour = $(this).attr("id");
@@ -21,5 +21,14 @@ $(document).ready(function () {
             };
         });
     };
+
+    //Rendering stored inputs after page refresh
+    function storedInputs() {
+        $(".event").each(function () {
+            var inputId = $(this).attr("id");
+            $(this).val(localStorage.getItem(inputId));
+        });
+    };
+
 
 });
