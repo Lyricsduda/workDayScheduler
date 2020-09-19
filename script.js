@@ -7,4 +7,19 @@ $(document).ready(function () {
         $("#currentDay").text(moment().format('dddd, MMMM Do'));
     };
 
+    //Color coding schedule dependant upon hour
+    function colorRowSchedule() {
+        $("input").each(function () {
+            var rowTimeHour = $(this).attr("id");
+            var rowTimeNumber = parseInt(rowTimeHour);
+            if (rowTimeNumber === time) {
+                $(this).addClass("present");
+            } else if (rowTimeNumber < time) {
+                $(this).addClass("past");
+            } else {
+                $(this).addClass("future");
+            };
+        });
+    };
+
 });
