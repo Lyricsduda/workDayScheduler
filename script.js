@@ -30,12 +30,15 @@ $(document).ready(function () {
         });
     };
 
-    // 
+    // Function to save user data when save button is clicked
     $(".saveBtn").click(function () {
         var scheduledInputs = $(this).siblings(".event").val();
         var inputs = $(this).siblings(".event").attr("id");
         localStorage.setItem(inputs, scheduledInputs);
     });
 
-
+    setInterval(getDateTime, 1000);
+    colorRowSchedule();
+    setInterval(colorRowSchedule, 1000);
+    storedInputs();
 });
