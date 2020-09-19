@@ -22,13 +22,20 @@ $(document).ready(function () {
         });
     };
 
-    //Rendering stored inputs after page refresh
+    // Function to store user data after refresh
     function storedInputs() {
         $(".event").each(function () {
             var inputId = $(this).attr("id");
             $(this).val(localStorage.getItem(inputId));
         });
     };
+
+    // 
+    $(".saveBtn").click(function () {
+        var scheduledInputs = $(this).siblings(".event").val();
+        var inputs = $(this).siblings(".event").attr("id");
+        localStorage.setItem(inputs, scheduledInputs);
+    });
 
 
 });
